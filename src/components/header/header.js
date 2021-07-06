@@ -1,6 +1,17 @@
 import React from 'react';
+import { Button } from 'antd';
 
-import './header.css';
+import 'antd/dist/antd.css';
+import './header.css'
 
-const Header = () => <h1>две кнопки для переключения</h1>;
+const Header = () => {
+
+  return (
+    <div className='tabs-container'>
+      <Button type="primary" ghost>Search</Button>
+      <Button >Rated</Button>
+    </div>
+  )
+
+};
 export default Header;

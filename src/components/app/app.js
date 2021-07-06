@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 
 import "./app.css";
+import { DatePicker } from 'antd';
+import Header from "../header/header";
+import SearchForm from "../search-form/search-form";
 
 export default class App extends Component {
     maxId = 100;
@@ -8,23 +11,17 @@ export default class App extends Component {
     render() {
 
         return (
-            <section className="todoapp">
+            <section className="container">
                 <header className="header">
-                    <AppHeader />
-                    <NewTaskForm onItemAdded={this.addItem} />
+                    <Header />
+                    <SearchForm />
                 </header>
                 <section className="main">
-                    <TaskList
-                        todos={this.showItems(this.state.todoData)}
-                        onDeleted={this.deleteItem}
-                        onToggleDone={this.onToggleDone}
-                    />
-                    <Footer
-                        toDo={toDo}
-                        filterActiveFooter={this.filterActive}
-                        filter={this.state.filter}
-                        clearCompleted={this.clearCompleted}
-                    />
+                    {/*<TaskList*/}
+                    {/*    todos={this.showItems(this.state.todoData)}*/}
+                    {/*    onDeleted={this.deleteItem}*/}
+                    {/*    onToggleDone={this.onToggleDone}*/}
+                    {/*/>*/}
                 </section>
             </section>
         );

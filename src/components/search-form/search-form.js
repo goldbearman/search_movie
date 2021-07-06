@@ -29,8 +29,8 @@ export default class SearchForm extends Component {
             <form action="" onSubmit={this.onSubmit}>
                 <input
                     type="text"
-                    className="new-todo"
-                    placeholder="What needs to be done?"
+                    className="header__input"
+                    placeholder="Type to search..."
                     autoFocus
                     // onChange={this.onLabelChange}
                     // value={this.state.label}
