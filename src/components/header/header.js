@@ -1,17 +1,25 @@
 import React from 'react';
-import { Button } from 'antd';
+import {Tabs} from 'antd';
+
 
 import 'antd/dist/antd.css';
 import './header.css'
+import SearchForm from "../search-form/search-form";
 
+const {TabPane} = Tabs;
 const Header = () => {
 
-  return (
-    <div className='tabs-container'>
-      <Button type="primary" ghost>Search</Button>
-      <Button >Rated</Button>
-    </div>
-  )
+    return (
+        <Tabs defaultActiveKey="1" >
+            <TabPane tab="Search" key="1">
+                <SearchForm />
+                Content of Tab Pane 1
+            </TabPane>
+            <TabPane tab="Rated" key="2">
+                Content of Tab Pane 2
+            </TabPane>
+        </Tabs>
+    )
 
 };
 export default Header;

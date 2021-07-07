@@ -14,7 +14,7 @@ export default class App extends Component {
             <section className="container">
                 <header className="header">
                     <Header />
-                    <SearchForm />
+
                 </header>
                 <section className="main">
                     {/*<TaskList*/}
