@@ -29,24 +29,20 @@ export default class Movei extends Component {
         // }
 
         return (
-            <li key={id} className={className}>
+            <li key={id} className={movie-item}>
+                <img className="card__poster" src="https://image.tmdb.org/t/p/w185/6LlqyjAik3Kh68QQ9AchSJEF0Z5.jpg"
+                     alt="Poster"/>
                 <div className="view">
-                    <input
-                        className="toggle"
-                        checked={done}
-                        type="checkbox"
-                        onChange={onToggleDone}
-                    />
-                    <label>
-                        <span className="description">{label}</span>
-                        <span className="created">
-              created {formatDistanceToNow(time, this.state.timeNow)}
-            </span>
-                    </label>
-                    <button className="icon icon-edit"></button>
-                    <button className="icon icon-destroy" onClick={onDeleleted}></button>
+                    <h1>Jarhead: Law of Return</h1>
+                    <p>October 1, 2019</p>
+                    <div className='genre'>
+                        <div>War</div>
+                    </div>
+                    <p>
+                        Major Ronan Jackson (Devon Sawa), an accomplished fighter pilot for the Israel Defense Forces and son of a U.S. Senator (Robert Patrick), is shot down while flying through Syrian airspace. …
+                    </p>
                 </div>
             </li>
-        );
+       )
     }
 }
