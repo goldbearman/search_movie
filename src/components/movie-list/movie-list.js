@@ -23,7 +23,7 @@ const MovieList = ({ arrMovie }) => {
         );
     });
 
-    return <Row gutter={[30,30]} className="movie-list">{elements}</Row>;
+    return <Row gutter={[38,38]} wrap={true} className="movie-list">{elements}</Row>;
 };
 
 // TaskList.defaultProps = {};

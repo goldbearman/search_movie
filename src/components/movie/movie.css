@@ -1,12 +1,11 @@
 .card {
     position: relative;
     font-family: Inter, sans-serif;
-    width: 430px;
+    width: 99%;
     height: 280px;
     font-size: 12px;
     display: flex;
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, .1);
-
 }
 
 
@@ -59,7 +58,7 @@
 }
 
 .ant-rate {
-    font-size: 18px;
+    font-size: 17px;
 }
 
 .ant-rate-star:not(:last-child) {
