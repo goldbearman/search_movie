@@ -1,13 +1,16 @@
 .card {
     position: relative;
     font-family: Inter, sans-serif;
-    width: 450px;
+    width: 430px;
     height: 280px;
     font-size: 12px;
     display: flex;
-    box-shadow: 0 0 10px 1px rgba(0,0,0,.1);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, .1);
+
 }
-.card__content{
+
+
+.card__content {
     padding: 10px 20px;
 }
 
@@ -25,23 +28,23 @@
     font-weight: 500;
 }
 
-.card__content h1{
+.card__content h1 {
     font-size: 20px;
     margin-bottom: 5px;
 }
 
-.card__content .date{
+.card__content .date {
     font-size: 12px;
     color: #827E7E;
     margin-bottom: 10px;
     font-weight: 400;
 }
 
-.genre{
+.genre {
     margin-bottom: 9px;
 }
 
-.card__content .genre button{
+.card__content .genre button {
     padding: 0 2px;
     border: 1px solid #D9D9D9;
     border-radius: 2px;
@@ -49,7 +52,7 @@
     color: #575757;
 }
 
-.stars{
+.stars {
     position: relative;
     bottom: -15px;
     right: 0;
@@ -59,6 +62,6 @@
     font-size: 18px;
 }
 
-.ant-rate-star:not(:last-child){
+.ant-rate-star:not(:last-child) {
     margin-right: 5px;
 }

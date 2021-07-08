@@ -2,8 +2,11 @@ import React, {Component} from "react";
 // import { formatDistanceToNow } from "date-fns";
 import {Rate} from 'antd';
 
+
 import 'antd/dist/antd.css';
 import "./movie.css"
+
+import { Row, Col, Slider } from 'antd';
 // import PropTypes from "prop-types";
 
 export default class Movie extends Component {
@@ -31,7 +34,7 @@ export default class Movie extends Component {
     // }
 
     return (
-      <li className='card'>
+      <Col span={12}  className='card'>
         <img className="card__poster" src="https://image.tmdb.org/t/p/w185/6LlqyjAik3Kh68QQ9AchSJEF0Z5.jpg"
              alt="Poster"/>
         <div className="card__content">
@@ -48,7 +51,7 @@ export default class Movie extends Component {
           </p>
           <Rate className="stars" count="10"/>
         </div>
-      </li>
+      </Col>
     )
   }
 }
