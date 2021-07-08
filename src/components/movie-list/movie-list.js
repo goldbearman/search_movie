@@ -1,37 +1,51 @@
-import React from "react";
+import React, {Component} from "react";
 import PropTypes from "prop-types";
 
 import 'antd/dist/antd.css';
-import { Row, Col, Slider } from 'antd';
+import {Row, Col, Slider} from 'antd';
 
 import "./movie-list.css";
 import Movie from "../movie/movie";
+import SwapiService from "../../services/swapi-service";
 
-// const MovieList = ({ todos, onDeleted, onToggleDone }) => {
-const MovieList = ({ arrMovie }) => {
-    console.log(arrMovie);
-    const elements = arrMovie.map((item) => {
-        // const { id } = item;
-        console.log("go1")
-        return (
-            <Movie
+export default class MovieList extends Component {
+
+  state = {
+    arrMovies:null
+  }
+
+  swapiService = new SwapiService();
+
+  getMovies() {
+    return this.swapiService.getSearchMovies("return")
+      .then((arr) => arr);
+  }
+
+
+  render() {
+
+    this.swapiService.getSearchMovies("return")
+      .then((arrMovies) => {
+          const elements = arrMovies.map((movie) => {
+            // const { id } = item;
+            // console.log(movie)
+            return (
+              <Movie
+                movie={movie}
                 // key={id}
                 //  {...item}
                 // onDeleleted={() => onDeleted(id)}
                 // onToggleDone={() => onToggleDone(id)}
-            />
-        );
-    });
-
-    return <Row gutter={[38,38]} wrap={true} className="movie-list">{elements}</Row>;
+              />
+            );
+          });
+          this.setState({
+            arrMovies: elements
+          })
+        }
+      );
+    return <Row gutter={[38, 38]} wrap={true} className="movie-list">{this.state.arrMovies}</Row>;
+  }
 };
 
-// TaskList.defaultProps = {};
-//
-// TaskList.propTypes = {
-//     todos: PropTypes.arrayOf(PropTypes.object).isRequired,
-//     onDeleted: PropTypes.func,
-//     onToggleDone: PropTypes.func,
-// };
 
-export default MovieList;
