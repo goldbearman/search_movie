@@ -20,26 +20,21 @@ export default class Movie extends Component {
   swapiService = new SwapiService();
 
   state = {
-    title: null,
-    genre: null,
-    rating: null,
-    text: null
+    movie: {},
   };
 
-  updateMovie(){
-    this.swapiService.getSearchMovie().then((item)=>{
+  updateMovie() {
+    this.swapiService.getSearchMovie().then((item) => {
       console.log(item);
       this.setState({
-        title: item.original_title,
-        genre: item.genre_ids,
-        rating: item.vote_average,
-        text: item.overview
+        movie: item
       });
     })
   }
 
   render() {
 
+    const {movie:{vote_average, original_title, overview}} = this.props
 
     return (
       <Col span={12}>
@@ -48,15 +43,15 @@ export default class Movie extends Component {
                alt="Poster"/>
           <div className="card__content">
             <div className="rating">
-              <div>{this.state.rating}</div>
+              <div>{vote_average}</div>
             </div>
-            <h1>{this.state.title}</h1>
+            <h1>{original_title}</h1>
             <div className="date">October 1, 2019</div>
             <div className='genre'>
               <button>War</button>
             </div>
             <p>
-              {this.state.text}
+              {overview}
             </p>
             <Rate className="stars" count="10"/>
           </div>
