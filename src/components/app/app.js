@@ -15,33 +15,40 @@ export default class App extends Component {
   }
 
   state = {
-    arrMovies: {},
-    loading: true
+    arrMovies: [],
+    loading: true,
+    error: false
   };
 
   swapiService = new SwapiService();
 
+  onError = (err) => {
+    this.setState({
+      error: true,
+      loading: false
+    })
+  };
 
   getMovies() {
-    this.swapiService.getSearchMovies("return")
+    this.swapiService.getSearchMovies('+')
       .then((arr) => {
         console.log(arr)
         this.setState({
           arrMovies: arr,
           loading: false
         })
-      });
+      }).catch(this.onError);
   }
 
   render() {
 
-    const {arrMovies, loading} = this.state;
-    console.log(arrMovies)
+    const {arrMovies, loading, error} = this.state;
+    // console.log(arrMovies)
 
     return (
       <section className="container">
         <header className="header">
-          <Header arrMovies={arrMovies} loading={loading}/>
+          <Header arrMovies={arrMovies} loading={loading} error={error}/>
 
         </header>
         <section className="main">

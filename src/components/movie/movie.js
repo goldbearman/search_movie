@@ -34,12 +34,13 @@ export default class Movie extends Component {
 
   render() {
 
-    const {movie:{vote_average, original_title, overview}} = this.props
+    const {movie:{vote_average, original_title, overview,poster_path}} = this.props
+    console.log(this.props.movie)
 
     return (
       <Col span={12}>
         <div className='card'>
-          <img className="card__poster" src="https://image.tmdb.org/t/p/w185/6LlqyjAik3Kh68QQ9AchSJEF0Z5.jpg"
+          <img className="card__poster" src={`https://image.tmdb.org/t/p/w185/${poster_path}`}
                alt="Poster"/>
           <div className="card__content">
             <div className="rating">

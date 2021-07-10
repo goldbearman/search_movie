@@ -1,0 +1,16 @@
+.error-indicator{
+    margin-top: 30px;
+    color: #1890FF;
+    font-size: 20px;
+    text-align: center;
+    font-weight: 600;
+
+}
+
+.error-indicator span{
+    /*color: chocolate;*/
+}
+
+.error-indicator .icon{
+    width: 100px;
+}

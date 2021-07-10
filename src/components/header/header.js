@@ -19,15 +19,15 @@ export default class Header extends Component {
 
   render() {
 
-    const {arrMovies, loading} = this.props;
-    console.log(arrMovies)
-    console.log(loading)
+    const {arrMovies, loading, error} = this.props;
+    // console.log(arrMovies)
+    // console.log(loading)
 
     return (
       <Tabs defaultActiveKey="1">
         <TabPane tab="Search" key="1">
           <SearchForm/>
-          <MovieList arrMovies={arrMovies} loading={loading}/>
+          <MovieList arrMovies={arrMovies} loading={loading} error={error}/>
           {/*Content of Tab Pane 1*/}
         </TabPane>
         <TabPane tab="Rated" key="2">
