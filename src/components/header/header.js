@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {Tabs} from 'antd';
+import {Tabs, Pagination} from 'antd';
 
 
 import 'antd/dist/antd.css';
@@ -12,9 +12,15 @@ const {TabPane} = Tabs;
 
 export default class Header extends Component {
 
-  // state = {
-  //   arrMovie: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-  // };
+  state = {
+    page: 1
+  };
+
+  onChange = (page, pageSize) => {
+    this.setState({
+      page: page
+    })
+  }
 
 
   render() {
@@ -27,7 +33,8 @@ export default class Header extends Component {
       <Tabs defaultActiveKey="1">
         <TabPane tab="Search" key="1">
           <SearchForm/>
-          <MovieList arrMovies={arrMovies} loading={loading} error={error}/>
+          <MovieList arrMovies={arrMovies} loading={loading} error={error} page={this.state.page}/>
+          <Pagination defaultCurrent={1} total={20} pageSize={6} size={6} defaultPageSize={6} onChange={this.onChange}/>
           {/*Content of Tab Pane 1*/}
         </TabPane>
         <TabPane tab="Rated" key="2">

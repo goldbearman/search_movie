@@ -9,3 +9,8 @@
 .ant-tabs-tab + .ant-tabs-tab {
     margin: 0 ;
 }
+
+.ant-pagination {
+    width: 240px;
+    margin: 30px auto;
+}

@@ -11,28 +11,36 @@ import ErrorIndicator from "../error-indicator/error-indicator";
 
 export default class MovieList extends Component {
 
-  createList = (arrMovies) => {
+  createList = (arrMovies, page) => {
+    console.log(arrMovies)
+    // let count = 0;
     const elements = arrMovies.map((movie) => {
+      // count++;
+      // if (count > 6) {
+      //   return false;
+      // }
       return (
-        <Movie
-          movie={movie}
+        <Movie key={movie.id}
+               movie={movie}
         />
       );
     });
-    return elements;
+
+    return elements.slice((page - 1) * 6 , page * 6 );
   };
 
   render() {
 
-    const {arrMovies, loading, error} = this.props;
+    const {arrMovies, loading, error, page} = this.props;
     console.log(arrMovies)
     console.log(loading)
 
-    const hasData = !(loading||error);
+    const hasData = !(loading || error);
 
     const onErrorMessage = error ? <ErrorIndicator/> : null;
     const onSpinner = loading ? <MovieSpinner/> : null;
-    const content = hasData?<Row gutter={[38, 38]} wrap={true} className="movie-list">{this.createList(arrMovies)}</Row>:null
+    const content = hasData ?
+      <Row gutter={[38, 38]} wrap={true} className="movie-list">{this.createList(arrMovies, page)}</Row> : null
 
     return (
       <React.Fragment>

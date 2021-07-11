@@ -30,6 +30,7 @@
 .card__content h1 {
     font-size: 20px;
     margin-bottom: 5px;
+    width: 170px;
 }
 
 .card__content .date {
@@ -57,9 +58,9 @@
 }
 
 .stars {
-    position: relative;
-    bottom: -15px;
-    right: 0;
+    position: absolute;
+    bottom: 10px;
+    right: 23px;
 }
 
 .ant-rate {

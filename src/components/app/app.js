@@ -9,8 +9,12 @@ import SwapiService from "../../services/swapi-service";
 export default class App extends Component {
   maxId = 100;
 
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
+  //   this.getMovies();
+  // }
+
+  componentDidMount() {
     this.getMovies();
   }
 
@@ -30,7 +34,7 @@ export default class App extends Component {
   };
 
   getMovies() {
-    this.swapiService.getSearchMovies('+')
+    this.swapiService.getSearchMovies('return')
       .then((arr) => {
         console.log(arr)
         this.setState({
