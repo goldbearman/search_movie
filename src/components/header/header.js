@@ -22,6 +22,10 @@ export default class Header extends Component {
     })
   }
 
+  addItem = (item)=>{
+    this.props.addItem(item);
+  }
+
 
   render() {
 
@@ -32,7 +36,7 @@ export default class Header extends Component {
     return (
       <Tabs defaultActiveKey="1">
         <TabPane tab="Search" key="1">
-          <SearchForm onItemAdded={addItem} />
+          <SearchForm onItemAdded={this.addItem} />
           <MovieList arrMovies={arrMovies} loading={loading} error={error} page={this.state.page}/>
           <Pagination defaultCurrent={1} total={20} pageSize={6} size={6} defaultPageSize={6} onChange={this.onChange}/>
           {/*Content of Tab Pane 1*/}

@@ -52,7 +52,7 @@ export default class App extends Component {
   }
 
   render() {
-s
+
     const {arrMovies, loading, error} = this.state;
     // console.log(arrMovies)
 
