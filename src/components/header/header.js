@@ -25,14 +25,14 @@ export default class Header extends Component {
 
   render() {
 
-    const {arrMovies, loading, error} = this.props;
+    const {arrMovies, loading, error, addItem} = this.props;
     // console.log(arrMovies)
     // console.log(loading)
 
     return (
       <Tabs defaultActiveKey="1">
         <TabPane tab="Search" key="1">
-          <SearchForm/>
+          <SearchForm onItemAdded={addItem} />
           <MovieList arrMovies={arrMovies} loading={loading} error={error} page={this.state.page}/>
           <Pagination defaultCurrent={1} total={20} pageSize={6} size={6} defaultPageSize={6} onChange={this.onChange}/>
           {/*Content of Tab Pane 1*/}

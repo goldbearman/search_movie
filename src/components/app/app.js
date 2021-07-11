@@ -19,6 +19,7 @@ export default class App extends Component {
   }
 
   state = {
+    input: 'return',
     arrMovies: [],
     loading: true,
     error: false
@@ -44,15 +45,21 @@ export default class App extends Component {
       }).catch(this.onError);
   }
 
-  render() {
+  addItem(input) {
+    this.setState({
+      input: input,
+    })
+  }
 
+  render() {
+s
     const {arrMovies, loading, error} = this.state;
     // console.log(arrMovies)
 
     return (
       <section className="container">
         <header className="header">
-          <Header arrMovies={arrMovies} loading={loading} error={error}/>
+          <Header arrMovies={arrMovies} loading={loading} error={error} addItem={this.addItem}/>
 
         </header>
         <section className="main">

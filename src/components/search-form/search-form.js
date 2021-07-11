@@ -13,16 +13,13 @@ export default class SearchForm extends Component {
     //     });
     // };
     //
-    // onSubmit = (e) => {
-    //     e.preventDefault();
-    //     if (this.state.label !== undefined && this.state.label.trim() !== "") {
-    //         // eslint-disable-next-line react/prop-types
-    //         this.props.onItemAdded(this.state.label);
-    //     }
-    //     this.setState({
-    //         label: "",
-    //     });
-    // };
+    onSubmit = (e) => {
+        e.preventDefault();
+        if (this.state.label !== undefined && this.state.label.trim() !== "") {
+            // eslint-disable-next-line react/prop-types
+            this.props.onItemAdded(this.state.label);
+        }
+    };
 
     render() {
         return (
