@@ -3,16 +3,17 @@ import React, { Component } from "react";
 import "./search-form.css";
 
 export default class SearchForm extends Component {
-    // state = {
-    //     label: "",
-    // };
-    //
-    // onLabelChange = (e) => {
-    //     this.setState({
-    //         label: e.target.value,
-    //     });
-    // };
-    //
+    state = {
+        label: "",
+    };
+
+    onLabelChange = (e) => {
+        this.props.onItemAdded(this.state.label);
+        this.setState({
+            label: e.target.value,
+        });
+    };
+
     onSubmit = (e) => {
         e.preventDefault();
         if (this.state.label !== undefined && this.state.label.trim() !== "") {
@@ -29,8 +30,8 @@ export default class SearchForm extends Component {
                     className="header__input"
                     placeholder="Type to search..."
                     autoFocus
-                    // onChange={this.onLabelChange}
-                    // value={this.state.label}
+                    onChange={this.onLabelChange}
+                    value={this.state.label}
                 />
             </form>
         );

@@ -45,7 +45,8 @@ export default class App extends Component {
       }).catch(this.onError);
   }
 
-  addItem(input) {
+  addItem=(input)=> {
+    console.log(input)
     this.setState({
       input: input,
     })

@@ -12,7 +12,7 @@ import ErrorIndicator from "../error-indicator/error-indicator";
 export default class MovieList extends Component {
 
   createList = (arrMovies, page) => {
-    console.log(arrMovies)
+    // console.log(arrMovies)
     // let count = 0;
     const elements = arrMovies.map((movie) => {
       // count++;
@@ -32,8 +32,8 @@ export default class MovieList extends Component {
   render() {
 
     const {arrMovies, loading, error, page} = this.props;
-    console.log(arrMovies)
-    console.log(loading)
+    // console.log(arrMovies)
+    // console.log(loading)
 
     const hasData = !(loading || error);
 

@@ -25,7 +25,7 @@ export default class Movie extends Component {
 
   updateMovie() {
     this.swapiService.getSearchMovie().then((item) => {
-      console.log(item);
+      // console.log(item);
       this.setState({
         movie: item
       });
@@ -35,7 +35,7 @@ export default class Movie extends Component {
   render() {
 
     const {movie:{vote_average, original_title, overview,poster_path}} = this.props
-    console.log(this.props.movie)
+    // console.log(this.props.movie)
 
     return (
       <Col span={12}>
