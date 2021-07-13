@@ -11,14 +11,16 @@ import ErrorIndicator from "../error-indicator/error-indicator";
 
 export default class MovieList extends Component {
 
+  state = {
+    idSession: 0
+  }
+
+
+
+
   createList = (arrMovies, page) => {
-    // console.log(arrMovies)
-    // let count = 0;
+
     const elements = arrMovies.map((movie) => {
-      // count++;
-      // if (count > 6) {
-      //   return false;
-      // }
       return (
         <Movie key={movie.id}
                movie={movie}
