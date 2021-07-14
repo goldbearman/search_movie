@@ -34,7 +34,8 @@ export default class Movie extends Component {
 
     onChangeStars = (stars) => {
         console.log(stars);
-        this.swapiService.postRate(stars, this.props.movie.id).then(result =>console.log(result))
+        console.log(this.props.guestSessionId);
+        this.swapiService.postRate(stars, this.props.movie.id,this.props.guestSessionId).then(result =>console.log(result))
     }
 
     render() {

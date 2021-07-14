@@ -16,13 +16,17 @@ export default class App extends Component {
 
   componentDidMount() {
     this.getMovies();
+    this.getNewGuestSessionId()
+    console.log('didMount')
+
   }
 
   state = {
     input: 'return',
     arrMovies: [],
     loading: true,
-    error: false
+    error: false,
+    guestSessionId:0
   };
 
   swapiService = new SwapiService();
@@ -34,13 +38,25 @@ export default class App extends Component {
     })
   };
 
+  getNewGuestSessionId() {
+    console.log('getNewGuestSessionId');
+    this.swapiService.getGuestSessionId()
+      .then((guestSessionId) => {
+        console.log(guestSessionId)
+        this.setState({
+          guestSessionId: guestSessionId
+        })
+      }).catch(this.onError);
+  }
+
   getMovies() {
+
     this.swapiService.getSearchMovies('return')
       .then((arr) => {
         console.log(arr)
         this.setState({
           arrMovies: arr,
-          loading: false
+          loading: false,
         })
       }).catch(this.onError);
   }
@@ -60,7 +76,7 @@ export default class App extends Component {
     return (
       <section className="container">
         <header className="header">
-          <Header arrMovies={arrMovies} loading={loading} error={error} addItem={this.addItem}/>
+          <Header arrMovies={arrMovies} loading={loading} error={error} addItem={this.addItem} guestSessionId={this.state.guestSessionId}/>
 
         </header>
         <section className="main">

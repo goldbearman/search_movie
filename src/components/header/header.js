@@ -29,15 +29,15 @@ export default class Header extends Component {
 
   render() {
 
-    const {arrMovies, loading, error, addItem} = this.props;
+    const {arrMovies, loading, error, addItem, guestSessionId} = this.props;
     // console.log(arrMovies)
-    // console.log(loading)
+    console.log(guestSessionId)
 
     return (
       <Tabs defaultActiveKey="1">
         <TabPane tab="Search" key="1">
           <SearchForm onItemAdded={this.addItem} />
-          <MovieList arrMovies={arrMovies} loading={loading} error={error} page={this.state.page}/>
+          <MovieList arrMovies={arrMovies} loading={loading} error={error} page={this.state.page} guestSessionId={guestSessionId}/>
           <Pagination defaultCurrent={1} total={20} pageSize={6} size={6} defaultPageSize={6} onChange={this.onChange}/>
           {/*Content of Tab Pane 1*/}
         </TabPane>

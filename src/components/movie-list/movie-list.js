@@ -16,25 +16,23 @@ export default class MovieList extends Component {
   }
 
 
-
-
-  createList = (arrMovies, page) => {
+  createList = (arrMovies, page, guestSessionId) => {
 
     const elements = arrMovies.map((movie) => {
       return (
         <Movie key={movie.id}
-               movie={movie}
+               movie={movie} guestSessionId={guestSessionId}
         />
       );
     });
 
-    return elements.slice((page - 1) * 6 , page * 6 );
+    return elements.slice((page - 1) * 6, page * 6);
   };
 
   render() {
 
-    const {arrMovies, loading, error, page} = this.props;
-    // console.log(arrMovies)
+    const {arrMovies, loading, error, page, guestSessionId} = this.props;
+    console.log(guestSessionId)
     // console.log(loading)
 
     const hasData = !(loading || error);
@@ -42,7 +40,7 @@ export default class MovieList extends Component {
     const onErrorMessage = error ? <ErrorIndicator/> : null;
     const onSpinner = loading ? <MovieSpinner/> : null;
     const content = hasData ?
-      <Row gutter={[38, 38]} wrap={true} className="movie-list">{this.createList(arrMovies, page)}</Row> : null
+      <Row gutter={[38, 38]} wrap={true} className="movie-list">{this.createList(arrMovies, page, guestSessionId)}</Row> : null
 
     return (
       <React.Fragment>
