@@ -27,6 +27,22 @@
     font-weight: 500;
 }
 
+.rating.red{
+    border: 2px solid #E90000;
+}
+
+.rating.orange{
+    border: 2px solid #E97E00;
+}
+
+.rating.yellow{
+    border: 2px solid #e9d100;
+}
+
+.rating.green{
+    border: 2px solid #66E900;
+}
+
 .card__content h1 {
     font-size: 20px;
     margin-bottom: 5px;

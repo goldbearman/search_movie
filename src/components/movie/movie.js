@@ -35,36 +35,42 @@ export default class Movie extends Component {
     onChangeStars = (stars) => {
         console.log(stars);
         console.log(this.props.guestSessionId);
-        this.swapiService.postRate(stars, this.props.movie.id,this.props.guestSessionId).then(result =>console.log(result))
+        this.swapiService.postRate(stars, this.props.movie.id, this.props.guestSessionId).then(result => console.log(result))
     }
+
 
     render() {
 
-        const {movie: {vote_average, original_title, overview, poster_path}} = this.props
+        const {movie: {vote_average, original_title, overview, poster_path, release_date}} = this.props
         console.log(this.props.movie.id)
 
+        let setColor = 'green';
+        if (vote_average<=3) setColor = "red"
+        if (vote_average<=5&&vote_average>3) setColor = "orange"
+        if (vote_average<=7&&vote_average>5) setColor = "yellow"
 
-        return (
-            <Col span={12}>
-                <div className='card'>
-                    <img className="card__poster" src={`https://image.tmdb.org/t/p/w185/${poster_path}`}
-                         alt="Poster"/>
-                    <div className="card__content">
-                        <div className="rating">
-                            <div>{vote_average}</div>
+
+            return (
+                <Col span={12}>
+                    <div className='card'>
+                        <img className="card__poster" src={`https://image.tmdb.org/t/p/w185/${poster_path}`}
+                             alt="Poster"/>
+                        <div className="card__content">
+                            <div className="rating red">
+                                <div className={setColor}>{vote_average}</div>
+                            </div>
+                            <h1>{original_title}</h1>
+                            <div className="date">{release_date}</div>
+                            <div className='genre'>
+                                <button>War</button>
+                            </div>
+                            <p>
+                                {overview}
+                            </p>
+                            <Rate className="stars" count="10" onChange={this.onChangeStars}/>
                         </div>
-                        <h1>{original_title}</h1>
-                        <div className="date">October 1, 2019</div>
-                        <div className='genre'>
-                            <button>War</button>
-                        </div>
-                        <p>
-                            {overview}
-                        </p>
-                        <Rate className="stars" count="10" onChange={this.onChangeStars}/>
                     </div>
-                </div>
-            </Col>
-        )
+                </Col>
+            )
     }
 }

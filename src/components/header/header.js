@@ -22,7 +22,7 @@ export default class Header extends Component {
 
     swapiService = new SwapiService();
 
-    getRateMovies=(activeKey)=> {
+    getRateMovies = (activeKey) => {
         console.log(activeKey);
         if (activeKey === '2') {
             console.log("in")
@@ -63,11 +63,14 @@ export default class Header extends Component {
                     <SearchForm onItemAdded={this.addItem}/>
                     <MovieList arrMovies={arrMovies} loading={loading} error={error} page={this.state.page}
                                guestSessionId={guestSessionId}/>
-                    <Pagination defaultCurrent={1} total={arrMovies.length} pageSize={6} size={6} defaultPageSize={6}
-                                onChange={this.onChange}/>
+                    <div className='pagination-container'>
+                        <Pagination defaultCurrent={1} total={arrMovies.length}
+                                    defaultPageSize={6}
+                                    onChange={this.onChange}/>
+                    </div>
                     {/*Content of Tab Pane 1*/}
                 </TabPane>
-                <TabPane tab="Rated" key="2" >
+                <TabPane tab="Rated" key="2">
                     <MovieList arrMovies={this.state.rateMovie} loading={loading} error={error} page={this.state.page}
                                guestSessionId={guestSessionId}/>
                     Content of Tab Pane 2

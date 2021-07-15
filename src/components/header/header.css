@@ -1,4 +1,4 @@
-.ant-tabs-top .ant-tabs-nav{
+.ant-tabs-top .ant-tabs-nav {
     margin: 0 auto;
 }
 
@@ -7,10 +7,16 @@
 }
 
 .ant-tabs-tab + .ant-tabs-tab {
-    margin: 0 ;
+    margin: 0;
 }
 
 .ant-pagination {
-    width: 240px;
-    margin: 30px auto;
+
+    /*margin: 30px auto;*/
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
 }
