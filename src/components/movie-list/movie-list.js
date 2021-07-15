@@ -33,7 +33,7 @@ export default class MovieList extends Component {
 
     const {arrMovies, loading, error, page, guestSessionId} = this.props;
     console.log(guestSessionId)
-    // console.log(loading)
+    console.log(arrMovies)
 
     const hasData = !(loading || error);
 

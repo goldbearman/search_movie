@@ -27,7 +27,7 @@ export default class SwapiService {
   //   return r;
   // }
 
-  async getGuestSessionId() {
+  async getGuestSessionId(){
     const guestSession = await this.getResource(`/3/authentication/guest_session/new?api_key=${this._apiKey}`);
     // console.log(guestSession)
     const objRequest = await guestSession.guest_session_id;

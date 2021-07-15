@@ -42,6 +42,9 @@
 .rating.green{
     border: 2px solid #66E900;
 }
+.rating.brown{
+    border: 2px solid #934f2d;
+}
 
 .card__content h1 {
     font-size: 20px;

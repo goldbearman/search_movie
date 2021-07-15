@@ -27,6 +27,7 @@ export default class Header extends Component {
         if (activeKey === '2') {
             console.log("in")
             console.log(this.props.guestSessionId)
+            // this.swapiService.getRateMovie(this.props.guestSessionId)
             this.swapiService.getRateMovie(this.props.guestSessionId)
                 .then((rateMovie) => {
                     console.log(rateMovie.results)
