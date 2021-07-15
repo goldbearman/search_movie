@@ -14,7 +14,7 @@ export default class Movie extends Component {
 
     constructor(props) {
         super(props);
-        this.updateMovie();
+        // this.updateMovie();
     }
 
     swapiService = new SwapiService();
@@ -23,14 +23,14 @@ export default class Movie extends Component {
         movie: {},
     };
 
-    updateMovie() {
-        this.swapiService.getSearchMovie().then((item) => {
-            // console.log(item);
-            this.setState({
-                movie: item
-            });
-        })
-    }
+    // updateMovie() {
+    //     this.swapiService.getSearchMovie().then((item) => {
+    //         // console.log(item);
+    //         this.setState({
+    //             movie: item
+    //         });
+    //     })
+    // }
 
     onChangeStars = (stars) => {
         console.log(stars);

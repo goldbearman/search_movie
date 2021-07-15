@@ -49,9 +49,10 @@ export default class App extends Component {
       }).catch(this.onError);
   }
 
-  getMovies() {
 
-    this.swapiService.getSearchMovies('return')
+
+  getMovies(query) {
+    this.swapiService.getSearchMovies(query)
       .then((arr) => {
         console.log(arr)
         this.setState({
@@ -63,15 +64,16 @@ export default class App extends Component {
 
   addItem=(input)=> {
     console.log(input)
-    this.setState({
-      input: input,
-    })
+    // this.setState({
+    //   input: input,
+    // })
+    this.getMovies(input);
   }
 
   render() {
 
     const {arrMovies, loading, error} = this.state;
-    // console.log(arrMovies)
+    console.log(arrMovies)
 
     return (
       <section className="container">
@@ -80,6 +82,7 @@ export default class App extends Component {
 
         </header>
         <section className="main">
+
           {/*<TaskList*/}
           {/*    todos={this.showItems(this.state.todoData)}*/}
           {/*    onDeleted={this.deleteItem}*/}

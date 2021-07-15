@@ -1,7 +1,7 @@
 export default class SwapiService {
 
   _apiBase = 'https://api.themoviedb.org';
-  _apiKey = '864cd2acdebdfd281550947ea6066439&query';
+  _apiKey = '864cd2acdebdfd281550947ea6066439';
 
   // constructor(){
   //   this.guestSessionId = this.getGuestSessionId();
@@ -15,16 +15,17 @@ export default class SwapiService {
     return await res.json();
   }
 
-  async getSearchMovies(query) {
+  async getSearchMovies(query='return') {
     const res = await this.getResource(`/3/search/movie?api_key=864cd2acdebdfd281550947ea6066439&query=${query}`);
+
     return res.results;
   }
 
-  async getSearchMovie() {
-    const res = await fetch(`https://api.themoviedb.org/3/movie/550?api_key=864cd2acdebdfd281550947ea6066439`);
-    const r = await res.json();
-    return r;
-  }
+  // async getSearchMovie() {
+  //   const res = await fetch(`https://api.themoviedb.org/3/movie/550?api_key=864cd2acdebdfd281550947ea6066439`);
+  //   const r = await res.json();
+  //   return r;
+  // }
 
   async getGuestSessionId() {
     const guestSession = await this.getResource(`/3/authentication/guest_session/new?api_key=${this._apiKey}`);
@@ -53,9 +54,9 @@ export default class SwapiService {
     // return guestSession;
   }
 
-  async getRateMovie(stars, idMovie, guestSessionId) {
+  async getRateMovie(guestSessionId) {
 
-    const result = await fetch(`https://api.themoviedb.org/3/guest_session/${guestSessionId }/rated/movies?api_key=${this._apiKey}&sort_by=created_at.asc`);
+    const result = await fetch(`https://api.themoviedb.org/3/guest_session/${guestSessionId}/rated/movies?api_key=${this._apiKey}&sort_by=created_at.asc`);
     if (!result.ok) {
       throw new Error(`Could not fetch , received ${result.status}`)
     }
