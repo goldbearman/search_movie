@@ -2,6 +2,7 @@ import React, {Component} from "react";
 // import { formatDistanceToNow } from "date-fns";
 import {Rate} from 'antd';
 import SwapiService from "../../services/swapi-service";
+import { format } from 'date-fns'
 
 
 import 'antd/dist/antd.css';
@@ -57,7 +58,9 @@ export default class Movie extends Component {
 
     const {movie: {vote_average, original_title, overview, poster_path, release_date}} = this.props
     const {rateDefault}=this.state
-    console.log(this.props.movie.id)
+    console.log(new Date(release_date))
+    let date = format(new Date(release_date),'MMMM dd, yyyy');
+
 
     return (
       <Col span={12}>
@@ -69,7 +72,7 @@ export default class Movie extends Component {
               <div>{vote_average}</div>
             </div>
             <h1>{original_title}</h1>
-            <div className="date">{release_date}</div>
+            <div className="date">{date}</div>
             <div className='genre'>
               <button>War</button>
             </div>

@@ -80,3 +80,8 @@ export default class Header extends Component {
         )
     }
 };
+
+// useEffect(() => {
+//     getResource(`${apiBase}/genre/movie/list?api_key=${apiKey}`)
+//         .then(res => setGenres(res.genres))
+// },[])

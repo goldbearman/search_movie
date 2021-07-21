@@ -10,8 +10,9 @@
     margin: 0;
 }
 
-.ant-pagination {
-
+.ant-pagination li.ant-pagination-item-active {
+    /*background-color: #1890ff;*/
+    /*color: white;*/
     /*margin: 30px auto;*/
 }
 
