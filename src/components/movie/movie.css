@@ -11,6 +11,7 @@
 
 .card__content {
     padding: 10px 20px;
+    max-height: 245px;
 }
 
 .rating {
@@ -73,7 +74,7 @@
 
 .card__content p {
     max-height: 110px;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 .stars {

@@ -8,6 +8,7 @@ import "./movie-list.css";
 import Movie from "../movie/movie";
 import SwapiService from "../../services/swapi-service";
 import ErrorIndicator from "../error-indicator/error-indicator";
+import {SwapiServiceConsumer} from "../swapi-service-context/swapi-service-context";
 
 export default class MovieList extends Component {
 
@@ -16,12 +17,12 @@ export default class MovieList extends Component {
   }
 
 
-  createList = (arrMovies, page, guestSessionId) => {
+  createList = (arrMovies, page, guestSessionId,getAllGenres) => {
 
     const elements = arrMovies.map((movie) => {
       return (
         <Movie key={movie.id}
-               movie={movie} guestSessionId={guestSessionId}
+               movie={movie} guestSessionId={guestSessionId} getAllGenres={getAllGenres}
         />
       );
     });
@@ -39,16 +40,24 @@ export default class MovieList extends Component {
 
     const onErrorMessage = error ? <ErrorIndicator/> : null;
     const onSpinner = loading ? <MovieSpinner/> : null;
-    const content = hasData ?
-      <Row gutter={[38, 38]} wrap={true} className="movie-list">{this.createList(arrMovies, page, guestSessionId)}</Row> : null
+    // const content = hasData ?
+    //   <Row gutter={[38, 38]} wrap={true} className="movie-list">{this.createList(arrMovies, page, guestSessionId)}</Row> : null
 
     return (
-      <React.Fragment>
-        {onSpinner}
-        {onErrorMessage}
-        {content}
-      </React.Fragment>
-
+            <SwapiServiceConsumer>
+              {
+                ({getAllGenres})=>{
+                  return(
+                      <React.Fragment>
+                        {onSpinner}
+                        {onErrorMessage}
+                        {hasData ?
+                            <Row gutter={[38, 38]} wrap={true} className="movie-list">{this.createList(arrMovies, page, guestSessionId,getAllGenres)}</Row> : null}
+                      </React.Fragment>
+                  )
+                }
+              }
+            </SwapiServiceConsumer>
     );
   }
 };
